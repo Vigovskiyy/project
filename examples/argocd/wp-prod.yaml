@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: wordpress-prod
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Vigovskiyy/project.git
+    chart: wordpress-yv
+    targetRevision: 0.*
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: wp-prod
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
