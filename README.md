@@ -20,6 +20,7 @@
 ---
 
 ## Technologies which were used in project:
+ArgoCD
 
 ### Orchestration: 
 Kubernetes
